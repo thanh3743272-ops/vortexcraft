@@ -9,22 +9,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-      - name: Download Forge MDK
-        run: curl -L -o forge-mdk.zip https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.34/forge-1.16.5-36.2.34-mdk.zip
-      - name: Set up project folder from MDK
-        run: |
-          mkdir -p vortexcraft
-          unzip -o forge-mdk.zip -d vortexcraft
-      - name: Merge mod source into the MDK
-        run: |
-          mkdir -p mycode
-          unzip -o stalkerhorror-mod-src.zip -d mycode
-          cp -rf mycode/stalkerhorror/. vortexcraft/
+      - run: unzip -o "vortexcraft-forge-1.16.5.zip"
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '7.5.1'
-      - name: Build
-        run: cd vortexcraft && chmod +x gradlew && ./gradlew build --no-daemon
+      - run: cd vortexcraft && gradle build --no-daemon
       - uses: actions/upload-artifact@v4
         with:
           name: vortexcraft-jar
