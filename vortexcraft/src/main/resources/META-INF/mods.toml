@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+
+[[mods]]
+modId="simpletestmod"
+version="1.0.0"
+displayName="Simple Test Mod (Warm Tint Shader)"
+authors="you"
+description='''
+Mod test - bam phim G de bat/tat hieu ung tint mau am + vignette,
+tao qua he thong post-processing shader noi bo cua Minecraft (khong dung OptiFine).
+'''
+
+[[dependencies.simpletestmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.simpletestmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
